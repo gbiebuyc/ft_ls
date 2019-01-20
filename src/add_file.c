@@ -6,7 +6,7 @@
 /*   By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 11:06:27 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/20 17:05:39 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/20 21:01:52 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 void	add_file(t_file *new, t_dir *d)
 {
-	if (!d->files_tail)
-		d->files = new;
-	else
-		d->files_tail->next = new;
-	d->files_tail = new;
+	t_file	**curr;
+
+	curr = &d->files;
+	while (*curr && check_sort(*curr, new))
+		curr = &(*curr)->next;
+	new->next = *curr;
+	*curr = new;
 	d->total_block_count += new->stat.st_blocks;
 	d->lnk_col_width = ft_max(d->lnk_col_width,
 			(int)ft_strlen(ft_itoa_static(new->stat.st_nlink)));

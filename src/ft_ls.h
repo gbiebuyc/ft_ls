@@ -6,7 +6,7 @@
 /*   By: gbiebuyc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 22:09:31 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/20 19:17:22 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/20 23:41:15 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ typedef struct			s_file
 
 typedef struct			s_dir
 {
-	t_file				*info;
+	t_file				info;
 	t_file				*files;
 	t_file				*files_tail;
 	struct s_dir		*dirs;

@@ -6,7 +6,7 @@
 /*   By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 11:13:38 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/20 19:07:04 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/20 23:59:44 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ void	add_dir(t_file *info, t_dir *d)
 		ft_putstr_fd("malloc error\n", 2);
 		exit(EXIT_FAILURE);
 	}
-	*new = (t_dir){.info = info};
+	ft_bzero(new, sizeof(*new));
+	ft_memcpy(&new->info, info, sizeof(*info));
 	curr = &d->dirs;
-	while (*curr && check_sort((*curr)->info, new->info))
+	while (*curr && check_sort(&(*curr)->info, &new->info))
 		curr = &(*curr)->next;
 	new->next = *curr;
 	*curr = new;
