@@ -6,7 +6,7 @@
 /*   By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 09:23:24 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/20 17:40:55 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/20 19:16:42 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void	dir_print(t_dir *d,
 		if (d->files || dir != d->dirs)
 			ft_putchar('\n');
 		if ((d->files || d->dirs->next) &&
-			!(ft_strequ(dir->path, ".") && get_opt()->no_operands_given))
-			ft_printf("%s:\n", dir->path);
+			!(ft_strequ(dir->info->path, ".") && get_opt()->no_operands_given))
+			ft_printf("%s:\n", dir->info->path);
 		list_dir(dir);
 		dir = dir->next;
 	}

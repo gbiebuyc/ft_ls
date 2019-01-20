@@ -6,7 +6,7 @@
 /*   By: gbiebuyc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 22:09:31 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/20 17:42:45 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/20 19:17:22 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ typedef struct			s_file
 
 typedef struct			s_dir
 {
-	char				*path;
+	t_file				*info;
 	t_file				*files;
 	t_file				*files_tail;
 	struct s_dir		*dirs;
@@ -106,7 +106,8 @@ void					dir_print(t_dir *d,
 		t_file *err, t_file *file, t_dir *dir);
 void					dir_free(t_dir *d);
 void					add_file(t_file *new, t_dir *d);
-void					add_dir(char *dir_path, t_dir *d);
-void					add_error(t_file **error_lst, t_file *new);
+void					add_dir(t_file *info, t_dir *d);
+void					add_error(t_file *new, t_file **error_lst);
+bool					check_sort(t_file *f1, t_file *f2);
 
 #endif

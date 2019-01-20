@@ -6,7 +6,7 @@
 /*   By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 11:32:24 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/20 17:41:56 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/20 18:44:03 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,10 @@ void	add_operand(char *path, t_dir *d)
 {
 	t_file	*new;
 
-	if (is_dir(path, get_opt()->longformat) && !get_opt()->listdirasfile)
-		add_dir(path, d);
-	else if (!new_file(&new, 0, path))
-		add_error(&d->errors, new);
+	if (!new_file(&new, 0, path))
+		add_error(new, &d->errors);
+	else if (is_dir(path, get_opt()->longformat) && !get_opt()->listdirasfile)
+		add_dir(new, d);
 	else
 		add_file(new, d);
 }

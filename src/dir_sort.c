@@ -6,18 +6,18 @@
 /*   By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 11:34:36 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/20 15:28:36 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/20 19:15:40 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-bool	checkswap(t_file *f1, t_file *f2)
+bool	check_sort(t_file *f1, t_file *f2)
 {
 	t_file *tmp;
 
 	if (get_opt()->nosort)
-		return (false);
+		return (true);
 	if (get_opt()->sortreverse)
 	{
 		tmp = f1;
@@ -27,24 +27,24 @@ bool	checkswap(t_file *f1, t_file *f2)
 	if (get_opt()->sortbysize)
 	{
 		if (f1->stat.st_size - f2->stat.st_size < 0)
-			return (true);
-		if (f1->stat.st_size - f2->stat.st_size > 0)
 			return (false);
+		if (f1->stat.st_size - f2->stat.st_size > 0)
+			return (true);
 	}
 	else if (get_opt()->sortbytime)
 	{
 		if (f1->stat.st_mtime - f2->stat.st_mtime < 0)
-			return (true);
-		if (f1->stat.st_mtime - f2->stat.st_mtime > 0)
 			return (false);
+		if (f1->stat.st_mtime - f2->stat.st_mtime > 0)
+			return (true);
 	}
-	return (ft_strcmp(f1->name, f2->name) > 0);
+	return (ft_strcmp(f1->name, f2->name) <= 0);
 }
 
 /*
 ** Simple bubble sort on a linked list
 */
-
+/*
 void	sort_lst(t_file **lst)
 {
 	t_file	**pcurr;
@@ -72,3 +72,4 @@ void	sort_lst(t_file **lst)
 		}
 	}
 }
+*/

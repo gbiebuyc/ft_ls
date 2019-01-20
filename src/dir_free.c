@@ -6,7 +6,7 @@
 /*   By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 11:39:31 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/20 14:49:29 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/20 18:46:20 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	dir_lst_free(t_dir **lst, t_dir **tail)
 	while (lst && *lst)
 	{
 		tmp = (*lst)->next;
+		free((*lst)->info);
 		free(*lst);
 		*lst = tmp;
 	}

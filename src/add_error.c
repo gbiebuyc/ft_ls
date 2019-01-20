@@ -6,13 +6,13 @@
 /*   By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 09:56:19 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/20 15:00:17 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/20 18:44:19 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	add_error(t_file **error_lst, t_file *new)
+void	add_error(t_file *new, t_file **error_lst)
 {
 	t_file	**curr;
 
