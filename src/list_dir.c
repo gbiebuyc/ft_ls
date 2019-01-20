@@ -6,41 +6,35 @@
 /*   By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 08:41:24 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/17 13:47:30 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/20 15:37:54 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	list_subdirs(t_dirinfo *d)
+void	list_subdirs(t_dir *d)
 {
-	t_fileinfo	*f;
+	t_file	*f;
 
 	f = d->files;
 	while (f)
 	{
-		if (S_ISDIR(f->stat.st_mode) &&
-				!ft_strequ(f->name, ".") && !ft_strequ(f->name, ".."))
-		{
-			ft_printf("\n%s:\n", f->path);
-			list_dir(f->path);
-		}
+		if (S_ISDIR(new->stat.st_mode) &&
+				!ft_strequ(new->name, ".") && !ft_strequ(new->name, ".."))
+			add_dir(f->path, d);
 		f = f->next;
 	}
 }
 
-void	list_dir(char *dir_path)
+void	list_dir(t_dir *d)
 {
-	t_dirinfo	d;
-
-	d = (t_dirinfo){.dir_path = dir_path};
-	if (!dir_read(&d))
-		return (dir_error(dir_path));
-	dir_sort(&d);
-	if (get_opt()->longformat)
-		ft_printf("total %jd\n", d.total_block_count);
-	dir_print(&d, d.errors, d.files, d.dirs);
+	if (!dir_read(d))
+		return (dir_error(d->path));
+	sort_lst(d->files);
 	if (get_opt()->recursive)
-		list_subdirs(&d);
-	dir_free(&d);
+		list_subdirs(d);
+	if (get_opt()->longformat)
+		ft_printf("total %jd\n", d->total_block_count);
+	dir_print(d, d->errors, d->files, d->dirs);
+	dir_free(d);
 }

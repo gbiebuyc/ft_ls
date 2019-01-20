@@ -6,15 +6,15 @@
 /*   By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 11:31:53 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/17 11:31:55 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/20 14:52:32 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-bool	new_file(t_fileinfo **new, char *path, char *name)
+bool	new_file(t_file **new, char *path, char *name)
 {
-	if (!(*new = malloc(sizeof(t_fileinfo))))
+	if (!(*new = malloc(sizeof(t_file))))
 	{
 		ft_putstr_fd("malloc error\n", 2);
 		exit(EXIT_FAILURE);

@@ -6,7 +6,7 @@
 /*   By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 11:31:23 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/17 13:14:38 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/19 18:43:46 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		main(int ac, char **av)
 {
-	static t_dirinfo	d;
+	static t_dir	d;
 
 	(void)ac;
 	parse_args(av, &d);

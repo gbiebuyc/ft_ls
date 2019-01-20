@@ -6,7 +6,7 @@
 /*   By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 11:32:24 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/17 12:24:39 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/20 15:16:33 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,20 +47,19 @@ bool	parse_options(char *s)
 	return (false);
 }
 
-void	add_operand(char *path, t_dirinfo *d)
+void	add_operand(char *path, t_dir *d)
 {
-	t_fileinfo	*new;
+	t_file	*new;
 
-	if (!new_file(&new, 0, path))
+	if (is_dir(path, get_opt()->longformat) && !get_opt()->listdirasfile)
+		add_dir(path, d);
+	else if (!new_file(&new, 0, path))
 		add_error(&d->errors, new);
-	else if (is_dir(new->path, get_opt()->longformat) &&
-			!get_opt()->listdirasfile)
-		add_dir(new, d);
 	else
 		add_file(new, d);
 }
 
-void	parse_args(char **av, t_dirinfo *d)
+void	parse_args(char **av, t_dir *d)
 {
 	while (*++av)
 	{

@@ -6,15 +6,19 @@
 /*   By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 11:06:27 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/17 11:23:55 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/19 18:56:14 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	add_file(t_fileinfo *new, t_dirinfo *d)
+void	add_file(t_fileinfo *new, t_dir *d)
 {
-	lst_add(new, &d->files, &d->files_tail);
+	if (!d->files_tail)
+		d->files = new;
+	else
+		d->files_tail->next = new;
+	d->files_tail = new;
 	d->total_block_count += new->stat.st_blocks;
 	d->lnk_col_width = ft_max(d->lnk_col_width,
 			(int)ft_strlen(ft_itoa_static(new->stat.st_nlink)));

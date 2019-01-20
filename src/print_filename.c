@@ -6,13 +6,13 @@
 /*   By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 11:33:07 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/17 11:33:08 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/20 15:20:05 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	print_filename(t_fileinfo *f)
+void	print_filename(t_file *f)
 {
 	if (get_opt()->colors)
 		print_color(f->stat.st_mode);

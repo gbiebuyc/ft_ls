@@ -6,14 +6,14 @@
 /*   By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 09:23:24 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/17 13:47:02 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/20 15:06:06 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
 void	dir_print(t_dirinfo *d,
-		t_fileinfo *err, t_fileinfo *file, t_fileinfo *dir)
+		t_file *err, t_file *file, t_dir *dir)
 {
 	while (err)
 	{
@@ -30,9 +30,10 @@ void	dir_print(t_dirinfo *d,
 	{
 		if (d->files || dir != d->dirs)
 			ft_putchar('\n');
-		if (get_opt()->operand_count > 1)
+		if (!(ft_strequ(dir->path, ".") && get_opt()->operand_count == 0) &&
+				get_opt()->operand_count > 1)
 			ft_printf("%s:\n", dir->path);
-		list_dir(dir->path);
+		list_dir(dir);
 		dir = dir->next;
 	}
 }

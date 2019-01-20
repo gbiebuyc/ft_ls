@@ -6,7 +6,7 @@
 #    By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/17 11:35:12 by gbiebuyc          #+#    #+#              #
-#    Updated: 2019/01/17 13:16:08 by gbiebuyc         ###   ########.fr        #
+#    Updated: 2019/01/20 15:18:41 by gbiebuyc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,6 @@ SRC = src/ft_ls.c \
 	  src/options.c \
 	  src/parse_args.c \
 	  src/list_dir.c \
-	  src/lst.c \
 	  src/new_file.c \
 	  src/print_file.c \
 	  src/print_filename.c \

@@ -6,15 +6,15 @@
 /*   By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 11:34:36 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/17 11:55:15 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/20 15:28:36 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-bool	checkswap(t_fileinfo *f1, t_fileinfo *f2)
+bool	checkswap(t_file *f1, t_file *f2)
 {
-	t_fileinfo *tmp;
+	t_file *tmp;
 
 	if (get_opt()->nosort)
 		return (false);
@@ -45,12 +45,12 @@ bool	checkswap(t_fileinfo *f1, t_fileinfo *f2)
 ** Simple bubble sort on a linked list
 */
 
-void	sort_lst(t_fileinfo **lst)
+void	sort_lst(t_file **lst)
 {
-	t_fileinfo	**pcurr;
-	t_fileinfo	*curr;
-	t_fileinfo	*next;
-	bool		done;
+	t_file	**pcurr;
+	t_file	*curr;
+	t_file	*next;
+	bool	done;
 
 	done = false;
 	while (!done && *lst)
@@ -71,10 +71,4 @@ void	sort_lst(t_fileinfo **lst)
 			curr = next;
 		}
 	}
-}
-
-void	dir_sort(t_dirinfo *d)
-{
-	sort_lst(&d->files);
-	sort_lst(&d->dirs);
 }

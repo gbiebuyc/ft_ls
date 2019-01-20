@@ -6,7 +6,7 @@
 /*   By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 11:32:55 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/17 11:32:56 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/20 15:19:35 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*points_to(char *symlink)
 	return (buf);
 }
 
-void	print_file_longformat(t_fileinfo *f, t_dirinfo *d)
+void	print_file_longformat(t_file *f, t_dir *d)
 {
 	print_filetype(f->stat.st_mode);
 	print_permissions(f->stat.st_mode);
@@ -52,7 +52,7 @@ void	print_file_longformat(t_fileinfo *f, t_dirinfo *d)
 		ft_printf(" -> %s", points_to(f->path));
 }
 
-void	print_file(t_fileinfo *f, t_dirinfo *d)
+void	print_file(t_file *f, t_dir *d)
 {
 	if (get_opt()->longformat)
 		print_file_longformat(f, d);
