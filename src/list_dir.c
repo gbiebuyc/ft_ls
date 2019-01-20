@@ -6,7 +6,7 @@
 /*   By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 08:41:24 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/20 15:37:54 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/20 17:04:36 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	list_subdirs(t_dir *d)
 	f = d->files;
 	while (f)
 	{
-		if (S_ISDIR(new->stat.st_mode) &&
-				!ft_strequ(new->name, ".") && !ft_strequ(new->name, ".."))
+		if (S_ISDIR(f->stat.st_mode) &&
+				!ft_strequ(f->name, ".") && !ft_strequ(f->name, ".."))
 			add_dir(f->path, d);
 		f = f->next;
 	}
@@ -30,7 +30,7 @@ void	list_dir(t_dir *d)
 {
 	if (!dir_read(d))
 		return (dir_error(d->path));
-	sort_lst(d->files);
+	sort_lst(&d->files);
 	if (get_opt()->recursive)
 		list_subdirs(d);
 	if (get_opt()->longformat)

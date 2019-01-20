@@ -6,7 +6,7 @@
 /*   By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 11:13:38 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/20 14:58:48 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/20 17:06:07 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	add_dir(char *dir_path, t_dir *d)
 		ft_putstr_fd("malloc error\n", 2);
 		exit(EXIT_FAILURE);
 	}
-	*new = (t_dir){.dir_path = dir_path};
+	*new = (t_dir){.path = dir_path};
 	if (!d->dirs_tail)
 		d->dirs = new;
 	else

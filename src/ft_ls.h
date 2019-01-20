@@ -6,7 +6,7 @@
 /*   By: gbiebuyc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 22:09:31 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/20 15:29:45 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/20 17:42:45 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ typedef struct			s_opt
 	bool				listdirasfile;
 	bool				completetime;
 	bool				endofoptions;
-	size_t				operand_count;
+	bool				no_operands_given;
 }						t_opt;
 
 typedef struct			s_file

@@ -6,7 +6,7 @@
 /*   By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 11:31:23 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/19 18:43:46 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/20 17:03:41 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		main(int ac, char **av)
 
 	(void)ac;
 	parse_args(av, &d);
-	dir_sort(&d);
+	sort_lst(&d.files);
 	dir_print(&d, d.errors, d.files, d.dirs);
 	dir_free(&d);
 }

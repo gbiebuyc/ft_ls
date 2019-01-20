@@ -6,13 +6,13 @@
 /*   By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 11:06:27 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/19 18:56:14 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/20 17:05:39 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	add_file(t_fileinfo *new, t_dir *d)
+void	add_file(t_file *new, t_dir *d)
 {
 	if (!d->files_tail)
 		d->files = new;

@@ -6,7 +6,7 @@
 /*   By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 11:32:24 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/20 15:16:33 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/20 17:41:56 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,15 @@ void	add_operand(char *path, t_dir *d)
 
 void	parse_args(char **av, t_dir *d)
 {
+	get_opt()->no_operands_given = true;
 	while (*++av)
 	{
 		if (parse_options(*av))
 			continue ;
-		get_opt()->operand_count++;
+		get_opt()->no_operands_given = false;
 		get_opt()->endofoptions = true;
 		add_operand(*av, d);
 	}
-	if (get_opt()->operand_count == 0)
+	if (get_opt()->no_operands_given)
 		add_operand(".", d);
 }
