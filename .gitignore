@@ -6,9 +6,12 @@
 #    By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/18 22:07:23 by gbiebuyc          #+#    #+#              #
-#    Updated: 2019/01/18 22:07:39 by gbiebuyc         ###   ########.fr        #
+#    Updated: 2019/01/20 16:47:25 by gbiebuyc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+# ft_ls executable
+/ft_ls
 
 # Created by https://www.gitignore.io/api/c,vim,linux,macos
 # Edit at https://www.gitignore.io/?templates=c,vim,linux,macos
