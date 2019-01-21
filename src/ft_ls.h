@@ -6,7 +6,7 @@
 /*   By: gbiebuyc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 22:09:31 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/21 15:52:26 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/21 18:32:11 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,7 @@ typedef struct			s_dir
 {
 	t_file				info;
 	t_file				*files;
-	t_file				*files_tail;
 	struct s_dir		*dirs;
-	struct s_dir		*dirs_tail;
 	t_file				*errors;
 	int					lnk_col_width;
 	int					owner_col_width;
