@@ -6,7 +6,7 @@
 /*   By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/19 00:18:08 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/21 01:16:35 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/21 13:30:27 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,9 @@ t_opt	*get_opt(void)
 	return (&options);
 }
 
-void	toggle_option3(char c)
+void	toggle_option4(char c)
 {
-	if (c == 'o')
-	{
-		get_opt()->hide_group = true;
-		get_opt()->longformat = true;
-		get_opt()->need_stat = true;
-	}
-	else if (c == 'd')
+	if (c == 'd')
 		get_opt()->listdirasfile = true;
 	else if (c == 'T')
 		get_opt()->completetime = true;
@@ -39,20 +33,9 @@ void	toggle_option3(char c)
 	}
 }
 
-void	toggle_option2(char c)
+void	toggle_option3(char c)
 {
-	if (c == 'F')
-	{
-		get_opt()->classify = true;
-		get_opt()->slashafterdir = false;
-		get_opt()->need_stat = true;
-	}
-	else if (c == 'G')
-	{
-		get_opt()->colors = true;
-		get_opt()->need_stat = true;
-	}
-	else if (c == 'u')
+	if (c == 'u')
 		get_opt()->time_field = LAST_ACCESS;
 	else if (c == 'c')
 		get_opt()->time_field = LAST_STATUS_CHANGE;
@@ -67,6 +50,40 @@ void	toggle_option2(char c)
 	{
 		get_opt()->hide_owner = true;
 		get_opt()->longformat = true;
+		get_opt()->need_stat = true;
+	}
+	else if (c == 'o')
+	{
+		get_opt()->hide_group = true;
+		get_opt()->longformat = true;
+		get_opt()->need_stat = true;
+	}
+	else
+		toggle_option4(c);
+}
+
+void	toggle_option2(char c)
+{
+	if (c == 'S')
+	{
+		get_opt()->sortbysize = true;
+		get_opt()->need_stat = true;
+	}
+	else if (c == 'p')
+	{
+		get_opt()->slashafterdir = true;
+		get_opt()->classify = false;
+		get_opt()->need_stat = true;
+	}
+	else if (c == 'F')
+	{
+		get_opt()->classify = true;
+		get_opt()->slashafterdir = false;
+		get_opt()->need_stat = true;
+	}
+	else if (c == 'G')
+	{
+		get_opt()->colors = true;
 		get_opt()->need_stat = true;
 	}
 	else
@@ -96,17 +113,6 @@ void	toggle_option(char c)
 	else if (c == 't')
 	{
 		get_opt()->sortbytime = true;
-		get_opt()->need_stat = true;
-	}
-	else if (c == 'S')
-	{
-		get_opt()->sortbysize = true;
-		get_opt()->need_stat = true;
-	}
-	else if (c == 'p')
-	{
-		get_opt()->slashafterdir = true;
-		get_opt()->classify = false;
 		get_opt()->need_stat = true;
 	}
 	else
