@@ -6,7 +6,7 @@
 /*   By: gbiebuyc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 22:09:31 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/20 23:41:15 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/21 01:48:33 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ typedef struct			s_opt
 	bool				completetime;
 	bool				endofoptions;
 	bool				no_operands_given;
+	bool				need_stat;
+	bool				print_block_count;
 }						t_opt;
 
 typedef struct			s_file

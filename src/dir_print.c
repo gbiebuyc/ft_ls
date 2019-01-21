@@ -6,7 +6,7 @@
 /*   By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 09:23:24 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/20 23:52:03 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/21 02:03:07 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,12 @@ void	dir_print(t_dir *d,
 	while (err)
 	{
 		lstat(err->path, &err->stat);
-		ft_dprintf(2, "ls: %s: %s\n", err->path, strerror(errno));
+		ft_dprintf(2, "ls: %s: %s\n", err->name, strerror(errno));
 		err = err->next;
 	}
+	if (file && get_opt()->longformat && get_opt()->print_block_count)
+		ft_printf("total %jd\n", d->total_block_count);
+	get_opt()->print_block_count = true;
 	while (file)
 	{
 		print_file(file, d);
@@ -30,7 +33,7 @@ void	dir_print(t_dir *d,
 	{
 		if (d->files || dir != d->dirs)
 			ft_putchar('\n');
-		if ((d->files || d->dirs->next) &&
+		if ((d->errors || d->files || d->dirs->next) &&
 			!(ft_strequ(dir->info.path, ".") && get_opt()->no_operands_given))
 			ft_printf("%s:\n", dir->info.path);
 		list_dir(dir);
