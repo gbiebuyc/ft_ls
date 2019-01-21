@@ -6,7 +6,7 @@
 #    By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/17 11:35:12 by gbiebuyc          #+#    #+#              #
-#    Updated: 2019/01/20 15:18:41 by gbiebuyc         ###   ########.fr        #
+#    Updated: 2019/01/21 14:11:25 by gbiebuyc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRC = src/ft_ls.c \
 	  src/print_permissions.c \
 	  src/print_filetype.c \
 	  src/dir_read.c \
-	  src/dir_sort.c \
+	  src/check_sort.c \
 	  src/dir_error.c \
 	  src/dir_print.c \
 	  src/dir_free.c \
@@ -32,7 +32,7 @@ SRC = src/ft_ls.c \
 	  src/add_dir.c \
 	  src/add_error.c
 OBJ = $(SRC:.c=.o)
-CFLAGS = -I libft -I ft_printf -Wall -Wextra -Werror -g
+CFLAGS = -I libft -I ft_printf -Wall -Wextra -Werror
 LDFLAGS = -L ft_printf -lftprintf
 .PHONY: all clean fclean re
 

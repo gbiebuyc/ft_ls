@@ -6,7 +6,7 @@
 /*   By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 09:36:23 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/21 01:15:29 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/21 13:27:09 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ bool	dir_read(t_dir *d)
 	{
 		if ((entry->d_name[0] != '.') || get_opt()->all ||
 				(get_opt()->a_maj && !ft_strequ(entry->d_name, ".") &&
-				 !ft_strequ(entry->d_name, "..")))
+				!ft_strequ(entry->d_name, "..")))
 		{
-			if (!new_file(&new, d->info.path, entry->d_name) && get_opt()->need_stat)
+			if (!new_file(&new, d->info.path, entry->d_name) &&
+					get_opt()->need_stat)
 				add_error(new, &d->errors);
 			else
 			{
@@ -37,6 +38,5 @@ bool	dir_read(t_dir *d)
 			}
 		}
 	}
-	closedir(dir);
-	return (true);
+	return (closedir(dir) ? true : true);
 }
