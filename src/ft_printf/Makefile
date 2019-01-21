@@ -6,7 +6,7 @@
 #    By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/03 15:37:26 by gbiebuyc          #+#    #+#              #
-#    Updated: 2019/01/18 23:18:04 by gbiebuyc         ###   ########.fr        #
+#    Updated: 2019/01/21 15:47:19 by gbiebuyc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRC = src/ft_printf.c \
 	  src/get_args.c \
 	  src/dispatch.c
 OBJ = $(SRC:.c=.o)
-LIBFTDIR = ../libft
+LIBFTDIR = src/libft
 CFLAGS = -I $(LIBFTDIR) -Wall -Wextra -Werror
 .PHONY: all clean fclean re
 

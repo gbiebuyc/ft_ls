@@ -6,7 +6,7 @@
 #    By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/17 11:35:12 by gbiebuyc          #+#    #+#              #
-#    Updated: 2019/01/21 15:11:23 by gbiebuyc         ###   ########.fr        #
+#    Updated: 2019/01/21 15:58:23 by gbiebuyc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,22 +29,23 @@ SRC = src/ft_ls.c \
 	  src/add_dir.c \
 	  src/add_error.c
 OBJ = $(SRC:.c=.o)
-CFLAGS = -I libft -I ft_printf -Wall -Wextra -Werror
-LDFLAGS = -L ft_printf -lftprintf
+FTPRINTF_DIR = src/ft_printf
+CFLAGS = -I $(FTPRINTF_DIR) -Wall -Wextra -Werror
+LDFLAGS = -L $(FTPRINTF_DIR) -lftprintf
 .PHONY: all clean fclean re
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	make -C ft_printf
+	make -C $(FTPRINTF_DIR)
 	$(CC) -o $(NAME) $(OBJ) $(LDFLAGS)
 
 clean:
-	make -C ft_printf clean
+	make -C $(FTPRINTF_DIR) clean
 	rm -rf $(OBJ)
 
 fclean:
-	make -C ft_printf fclean
+	make -C $(FTPRINTF_DIR) fclean
 	rm -rf $(OBJ)
 	rm -rf $(NAME)
 

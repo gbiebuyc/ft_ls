@@ -6,7 +6,7 @@
 /*   By: gbiebuyc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 22:09:31 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/21 14:46:55 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/21 15:52:26 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@
 # include <string.h>
 # include <stdint.h>
 # include <stdbool.h>
-
-# include <libft.h>
 # include <ft_printf.h>
 
 typedef enum		e_time_field
