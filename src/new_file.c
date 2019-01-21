@@ -6,7 +6,7 @@
 /*   By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 11:31:53 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/20 14:52:32 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/21 02:28:02 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ bool	new_file(t_file **new, char *path, char *name)
 	if (path && *path)
 	{
 		ft_strcat((*new)->path, path);
-		ft_strcat((*new)->path, "/");
+		ft_strcat((*new)->path, ft_strequ(path, "/") ? "" : "/");
 	}
 	ft_strcat((*new)->path, name);
 	(*new)->next = NULL;
