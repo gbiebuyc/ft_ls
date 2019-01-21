@@ -6,7 +6,7 @@
 /*   By: gbiebuyc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 22:09:31 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/21 03:59:10 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/21 14:46:55 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,6 @@ void					print_permissions(mode_t mode);
 void					print_filetype(mode_t mode);
 void					list_dir(t_dir *d);
 bool					dir_read(t_dir *d);
-void					dir_error(char *path);
-void					sort_lst(t_file **lst);
 void					dir_print(t_dir *d,
 		t_file *err, t_file *file, t_dir *dir);
 void					dir_free(t_dir *d);
