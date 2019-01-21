@@ -6,7 +6,7 @@
 /*   By: gbiebuyc <gbiebuyc@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/17 11:32:55 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/20 15:19:35 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/21 03:57:44 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,24 @@ char	*points_to(char *symlink)
 	return (buf);
 }
 
+char	*get_owner(uid_t uid)
+{
+	struct passwd	*pwd;
+
+	if ((pwd = getpwuid(uid)))
+		return (pwd->pw_name);
+	return (ft_itoa_static((intmax_t)uid));
+}
+
+char	*get_group(gid_t gid)
+{
+	struct group	*gr;
+
+	if ((gr = getgrgid(gid)))
+		return (gr->gr_name);
+	return (ft_itoa_static((intmax_t)gid));
+}
+
 void	print_file_longformat(t_file *f, t_dir *d)
 {
 	print_filetype(f->stat.st_mode);
@@ -31,11 +49,9 @@ void	print_file_longformat(t_file *f, t_dir *d)
 	print_xattr_acl(f->path);
 	ft_printf(" %*d", d->lnk_col_width, f->stat.st_nlink);
 	if (!get_opt()->hide_owner)
-		ft_printf(" %-*s ",
-				d->owner_col_width, getpwuid(f->stat.st_uid)->pw_name);
+		ft_printf(" %-*s ", d->owner_col_width, get_owner(f->stat.st_uid));
 	if (!get_opt()->hide_group)
-		ft_printf(" %-*s ",
-				d->group_col_width, getgrgid(f->stat.st_gid)->gr_name);
+		ft_printf(" %-*s ", d->group_col_width, get_group(f->stat.st_gid));
 	if (get_opt()->hide_owner && get_opt()->hide_group)
 		ft_putstr("  ");
 	if (S_ISBLK(f->stat.st_mode) || S_ISCHR(f->stat.st_mode))

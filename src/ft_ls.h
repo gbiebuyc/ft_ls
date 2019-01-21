@@ -6,7 +6,7 @@
 /*   By: gbiebuyc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 22:09:31 by gbiebuyc          #+#    #+#             */
-/*   Updated: 2019/01/21 01:48:33 by gbiebuyc         ###   ########.fr       */
+/*   Updated: 2019/01/21 03:59:10 by gbiebuyc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,5 +111,7 @@ void					add_file(t_file *new, t_dir *d);
 void					add_dir(t_file *info, t_dir *d);
 void					add_error(t_file *new, t_file **error_lst);
 bool					check_sort(t_file *f1, t_file *f2);
+char					*get_owner(uid_t uid);
+char					*get_group(gid_t gid);
 
 #endif
